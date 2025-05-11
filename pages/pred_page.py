@@ -7,6 +7,8 @@ st.set_page_config(
     page_title="Predicton Page"
 )
 
+#st.sidebar("Hello Page", "Prediction")
+
 def load_css(file_path):
     with open(file_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -19,7 +21,7 @@ def load_pickle(filename):
     with open(filename, "rb") as f:
         return pickle.load(f)
 
-# Load scaler (assuming it was saved from the notebook)
+# Load scaler
 scaler = load_pickle("scaler.pkl")
 
 # Load models
@@ -31,14 +33,12 @@ models = {
     'KNN': load_pickle('KNN_model.pkl')
 }
 
-# Streamlit UI
 st.title("Heart Disease Prediction App")
 
 model_name = st.selectbox("Choose a Model", list(models.keys()))
 
 st.subheader("Enter Patient Data")
 
-# Collect inputs
 age = st.number_input("Age", 0, 120, 30)
 sex = st.selectbox("Sex", [0, 1], format_func=lambda x: "Male" if x == 1 else "Female")
 cp = st.number_input("Chest Pain Type (0-3)", 0, 3, 0)

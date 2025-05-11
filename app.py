@@ -1,5 +1,5 @@
 import streamlit as st
-import pages
+from streamlit_extras.switch_page_button import switch_page
 import pathlib
 
 st.set_page_config(
@@ -18,4 +18,7 @@ st.header("Welcome to Heart Disease Prediction App")
 st.divider()
 st.image("images/heart_disease.jpg")
 
-st.page_link("pages/pred_page.py", label="Start Prediction Now")
+if st.button("Start Predicton Now", key='pulse'):
+    st.switch_page("pages\pred_page.py")
+
+
