@@ -33,7 +33,8 @@ models = {
     'KNN': load_pickle('KNN_model.pkl')
 }
 
-st.title("Heart Disease Prediction App")
+st.title("Heart Disease Prediction App🫀")
+st.divider()
 
 model_name = st.selectbox("Choose a Model", list(models.keys()))
 
@@ -51,7 +52,7 @@ exang = st.selectbox("Exercise Induced Angina", [0, 1], format_func=lambda x: "Y
 oldpeak = st.number_input("ST Depression", 0.0, 10.0, 1.0)
 slope = st.selectbox("Slope of ST", [0, 1, 2])
 ca = st.selectbox("Number of Major Vessels (0-4)", [0, 1, 2, 3, 4])
-thal = st.selectbox("Thalassemia (0 = Normal; 1 = Fixed Defect; 2 = Reversible Defect)", [0, 1, 2, 3])
+thal = st.selectbox("Thalassemia (2 = Normal; 1 = Fixed Defect; 3 = Reversible Defect)", [0, 1, 2, 3])
 
 if st.button("Predict", key='pulse'):
     input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg,
