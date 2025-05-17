@@ -4,7 +4,7 @@ import numpy as np
 import pathlib
 
 st.set_page_config(
-    page_title="Predicton Page"
+    page_title="Prediction Page"
 )
 
 #st.sidebar("Hello Page", "Prediction")
@@ -52,7 +52,7 @@ exang = st.selectbox("Exercise Induced Angina", [0, 1], format_func=lambda x: "Y
 oldpeak = st.number_input("ST Depression", 0.0, 10.0, 1.0)
 slope = st.selectbox("Slope of ST", [0, 1, 2])
 ca = st.selectbox("Number of Major Vessels (0-4)", [0, 1, 2, 3, 4])
-thal = st.selectbox("Thalassemia (2 = Normal; 1 = Fixed Defect; 3 = Reversible Defect)", [0, 1, 2, 3])
+thal = st.selectbox("Thalassemia (2 = Normal, 1 = Fixed Defect, 3 = Reversible Defect)", [1, 2, 3])
 
 if st.button("Predict", key='pulse'):
     input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg,
